@@ -21,3 +21,8 @@ Route::get('/', function () {
 
 Route::get('/external-login', [ApiLoginController::class, 'showLoginForm'])->name('external.login');
 Route::post('/external-login', [ApiLoginController::class, 'login']);
+Route::post('/external-logout', [ApiLoginController::class, 'logout'])->name('external.logout');
+
+Route::prefix('jobseeker')->group(function () {
+    Route::get('/dashboard', [ApiLoginController::class, 'dashboard'])->name('jobseeker.dashboard');
+});
